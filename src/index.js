@@ -3,8 +3,18 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import * as serviceWorker from './serviceWorker';
 
-const name = 'Liang Lingrui';
-const element = <h1>Hello, {name}</h1>;
+const formatName = (user) => (user.firstName + ' ' + user.lastName)
+
+const user = {
+  firstName: 'Liang',
+  lastName: 'Lingrui'
+};
+
+const element = (
+  <h1>
+    Hello, {formatName(user)}!
+  </h1>
+);
 
 ReactDOM.render(element,document.getElementById('root'));
 

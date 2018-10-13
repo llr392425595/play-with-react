@@ -10,13 +10,17 @@ const user = {
   lastName: 'Lingrui'
 };
 
-const element = (
-  <h1>
-    Hello, {formatName(user)}!
-  </h1>
-);
+const getGreeting = (user) => {
+    const defaultElem = <h1>Hello, Stranger.</h1>
+    const userElem = <h1>Hello, {formatName(user)}!</h1>
+    if(user){
+        return userElem
+    }else{
+        return defaultElem
+    }
+}
 
-ReactDOM.render(element,document.getElementById('root'));
+ReactDOM.render(getGreeting(user),document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

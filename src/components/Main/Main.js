@@ -3,6 +3,8 @@ import {BrowserRouter as Router, Route, Link} from 'react-router-dom'
 import Home from '../Home/Home'
 import Clock from '../Clock/Clock'
 import Switch from '../Switch/Switch'
+import LoginControl from '../LoginControl/LoginControl'
+import MailBox from '../MailBox/MailBox'
 
 class Main extends Component {
     render(){
@@ -10,14 +12,18 @@ class Main extends Component {
             <Router>
                 <div>
                     <div className="header">
-                        <Link to={`/`}>Home组件</Link>|
-                        <Link to={`/clock`}>Clock组件</Link>|
-                        <Link to={`/switch`}>开关组件</Link>
+                        <div><Link to={`/`}>Home组件</Link></div>
+                        <div><Link to={`/clock`}>Clock组件</Link></div>
+                        <div><Link to={`/switch`}>开关组件</Link></div>
+                        <div><Link to={`/loginControl`}>条件渲染——LoginControl组件</Link></div>
+                        <div><Link to={`/mailBox`}>条件渲染——mailBox组件</Link></div>
                     </div>
                     <div className="content">
                         <Route exact path="/" component={Home}/>
                         <Route path="/clock" component={Clock}/>
                         <Route path="/switch" component={Switch}/>
+                        <Route path="/loginControl" component={LoginControl}/>
+                        <Route path="/mailBox" render={() => <MailBox unreadMessages={['1','2','3']}/>}/>
                     </div>
                 </div>
             </Router>

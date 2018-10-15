@@ -14,8 +14,8 @@ class Switch extends React.Component {
   
     render() {
       return (
-        // 调用bind方法绑定时间到this指向的对象
-        <button onClick={this.handleClick.bind(this)}>
+        // 箭头函数避免this绑定
+        <button onClick={()=>{this.handleClick()}}>
           {this.state.isToggleOn ? 'ON' : 'OFF'}
         </button>
       );

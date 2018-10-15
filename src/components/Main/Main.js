@@ -5,6 +5,7 @@ import Clock from '../Clock/Clock'
 import Switch from '../Switch/Switch'
 import LoginControl from '../LoginControl/LoginControl'
 import MailBox from '../MailBox/MailBox'
+import Form from '../Form/Form'
 
 class Main extends Component {
     render(){
@@ -17,6 +18,7 @@ class Main extends Component {
                         <div><Link to={`/switch`}>开关组件</Link></div>
                         <div><Link to={`/loginControl`}>条件渲染——LoginControl组件</Link></div>
                         <div><Link to={`/mailBox`}>条件渲染——mailBox组件</Link></div>
+                        <div><Link to={`/form`}>Form——受控组件</Link></div>
                     </div>
                     <div className="content">
                         <Route exact path="/" component={Home}/>
@@ -24,6 +26,7 @@ class Main extends Component {
                         <Route path="/switch" component={Switch}/>
                         <Route path="/loginControl" component={LoginControl}/>
                         <Route path="/mailBox" render={() => <MailBox unreadMessages={['1','2','3']}/>}/>
+                        <Route path="/form" component={Form}/>
                     </div>
                 </div>
             </Router>

@@ -1,3 +1,33 @@
-import React from 'react'
+import React, { Component } from 'react'
+import PostBody from '../Postbody/PostBody'
+import CommentBox from '../CommentBox/CommentBox'
+import styled from 'styled-components'
 
-export default ()=>(<h1>Post</h1>)
+class Post extends Component {
+  render() {
+    return (
+      <Wrap>
+        <Upper>
+          <PostBody />
+        </Upper>
+        <Bottom>
+          <CommentBox />
+        </Bottom>
+      </Wrap>
+    )
+  }
+}
+
+export default Post
+
+const Wrap = styled.div``
+
+const Upper = styled.div`
+  display: flex;
+  background: #00bcd4;
+`
+
+const Bottom = styled.div`
+  display: flex;
+  background-color: rgba(0, 0, 0, .1)
+`

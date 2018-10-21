@@ -4,6 +4,8 @@ import Session1 from '../../components/Main/Session1'
 import Session2 from '../../components/Main/Session2'
 import SessionList from '../../components/SessionList/SessionList'
 
+import '../../assets/global.css'
+
 class App extends Component {
   render() {
     return (

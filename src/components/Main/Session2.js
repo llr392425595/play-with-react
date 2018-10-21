@@ -7,7 +7,7 @@ class Session2 extends Component {
     render(){
         return (
             <div className="content">
-                <Route path="/session2/" component={Home}/>
+                <Route exact path="/session2/" component={Home}/>
                 <Route path="/session2/post" component={Post}/>
             </div>
         )

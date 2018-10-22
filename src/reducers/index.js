@@ -13,8 +13,6 @@ const initialState = [
     switch (action.type) {
         case 'ADD_COMMENT':
             return [...state, action.comment]
-        case 'DECREMENT':
-            return state - 1
         default:
             return state
         }

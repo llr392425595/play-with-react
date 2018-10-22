@@ -4,14 +4,7 @@ import store from '../../../store'
 
 class CommentBox extends Component {
   state = {
-    text : '',
-    comments: [{
-        id:'0',
-        text:'hello'
-      },{
-        id:'1',
-        text:'hah'
-      }]
+    text : ''
   }
 
   handleChange = (e) => {
@@ -23,6 +16,10 @@ class CommentBox extends Component {
 
   submitCmt = (e) => {
     e.preventDefault()
+    const { text } = this.state
+    const id = store.getState().length
+    const comment = {id, text}
+    store.dispatch({type: 'ADD_COMMENT', comment})
     this.setState({
       text: ''
     })

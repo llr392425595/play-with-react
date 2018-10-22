@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
+import store from '../../../store'
 
 class CommentBox extends Component {
   state = {
@@ -22,15 +23,8 @@ class CommentBox extends Component {
 
   submitCmt = (e) => {
     e.preventDefault()
-    const { text } = this.state
-    const id = this.state.comments.length
-    const comments = [
-      ...this.state.comments,
-      { id, text }
-    ]
     this.setState({
-      text: '',
-      comments
+      text: ''
     })
   }
 
@@ -45,7 +39,7 @@ class CommentBox extends Component {
       </FormWrap>
     )
 
-    const { comments } = this.state
+    const comments = store.getState()
     const reversedComments = [...comments].reverse()
     const cmtList = reversedComments.map(
       t => <div key={t.id}>{t.text}</div>

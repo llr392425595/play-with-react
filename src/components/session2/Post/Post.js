@@ -2,23 +2,27 @@ import React, { Component } from 'react'
 import PostBody from '../Postbody/PostBody'
 import CommentBox from '../CommentBox/CommentBox'
 import styled from 'styled-components'
+import { connect } from 'react-redux'
 
 class Post extends Component {
   render() {
     return (
       <Wrap>
         <Upper>
-          <PostBody />
+          <PostBody {...this.props}/>
         </Upper>
         <Bottom>
-          <CommentBox />
+          <CommentBox {...this.props}/>
         </Bottom>
       </Wrap>
     )
   }
 }
 
-export default Post
+const mapStateToProps = state => ({
+  comments: state
+})
+export default connect(mapStateToProps)(Post)
 
 const Wrap = styled.div``
 

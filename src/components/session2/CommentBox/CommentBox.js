@@ -17,7 +17,7 @@ class CommentBox extends Component {
   submitCmt = (e) => {
     e.preventDefault()
     const { text } = this.state
-    const id = store.getState().length
+    const id = this.props.comments.length
     const comment = {id, text}
     store.dispatch({type: 'ADD_COMMENT', comment})
     this.setState({
@@ -36,7 +36,7 @@ class CommentBox extends Component {
       </FormWrap>
     )
 
-    const comments = store.getState()
+    const { comments } = this.props
     const reversedComments = [...comments].reverse()
     const cmtList = reversedComments.map(
       t => <div key={t.id}>{t.text}</div>

@@ -1,0 +1,8 @@
+version: '3.2'
+
+services:
+  api-gw-ui:
+    image: 392425595/play-with-react
+    build: ./app
+    ports:
+      - "3000:3000"

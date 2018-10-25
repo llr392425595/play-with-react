@@ -8,7 +8,7 @@ class Session2 extends Component {
         return (
             <div className="content">
                 <Route exact path="/session2/" component={Home}/>
-                <Route path="/session2/post" component={Post}/>
+                <Route path="/session2/post/:id" component={Post} />
             </div>
         )
     }

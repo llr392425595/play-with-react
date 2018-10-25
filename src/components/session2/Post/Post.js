@@ -6,10 +6,12 @@ import { connect } from 'react-redux'
 
 class Post extends Component {
   render() {
+    const { comments, match, posts } = this.props
+    const { id } = match.params
     return (
       <Wrap>
         <Upper>
-          <PostBody {...this.props}/>
+          <PostBody id={id} posts={posts} comments={comments}/>
         </Upper>
         <Bottom>
           <CommentBox {...this.props}/>
@@ -19,8 +21,9 @@ class Post extends Component {
   }
 }
 
-const mapStateToProps = state => ({
-  comments: state.comments
+const mapStateToProps = state =>({
+  comments: state.comments,
+  posts: state.posts
 })
 export default connect(mapStateToProps)(Post)
 

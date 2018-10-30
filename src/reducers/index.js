@@ -5,9 +5,9 @@ import counter from './counter'
 
 
 const rootReducer = combineReducers({
-    comments,
-    posts,
-    counter
+  comments,
+  posts,
+  counter
 });
 
 export default rootReducer

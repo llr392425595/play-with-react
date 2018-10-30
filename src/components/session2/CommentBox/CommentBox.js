@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import styled from 'styled-components'
 import store from '../../../store'
+import shortid from 'shortid'
 
 class CommentBox extends Component {
   state = {
@@ -20,9 +21,8 @@ class CommentBox extends Component {
     if (text === '') {
       return false
     }
-    const {postId, currentComments} = this.props;
-    const newCommentId = currentComments.length;
-    const comment = {id: newCommentId, text, postId};
+    const {postId} = this.props;
+    const comment = {id: shortid(), text, postId};
     store.dispatch({type: 'ADD_COMMENT', comment});
     this.setState({
       text: ''

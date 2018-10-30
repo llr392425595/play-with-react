@@ -1,19 +1,19 @@
-import React, { Component } from 'react'
+import React, {Component} from 'react'
 import styled from 'styled-components'
 
 class PostBody extends Component {
-  render () {
-    const { comments, id, posts } = this.props
+  render() {
+    const {currentComments, id, posts} = this.props;
     const post = posts.find(
       t => t.id === id
-    )
+    );
     return (
       <Wrap>
         <Title>
           {post.title}
         </Title>
         <CommentNo>
-            {comments.length} 评论
+          {currentComments.length} 评论
         </CommentNo>
       </Wrap>
     )
@@ -32,16 +32,16 @@ const Wrap = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-`
+`;
 
 const CommentNo = styled.div`
   position: absolute;
   bottom: 20px;
   right: 20px;
   border-bottom: 2px solid deeppink;
-`
+`;
 
 const Title = styled.div`
   text-align: center;
   font-size: 30px;
-`
+`;

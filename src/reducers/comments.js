@@ -1,21 +1,24 @@
 const initialState = [
     {
-      id: '11',
-      text: '11asas'
+      id: 0,
+      text: '第一篇文章的评论！',
+      postId: '1'
+
     },
     {
-      id: '12',
-      text: '12cdscds'
+        id: 1,
+        text: '第二篇文章的评论！',
+        postId: '2'
     }
-  ]
-  
+  ];
+
   const commentsReducer = (state = initialState, action) => {
     switch (action.type) {
         case 'ADD_COMMENT':
-            return [...state, action.comment]
+            return [...state, action.comment];
         default:
             return state
         }
-  }
+  };
 
   export default commentsReducer

@@ -1,49 +1,49 @@
-import React, { Component } from 'react'
+import React, {Component} from 'react'
 import styled from 'styled-components'
 import store from '../../../store'
 
 class CommentBox extends Component {
   state = {
-    text : ''
-  }
+    text: ''
+  };
 
   handleChange = (e) => {
-    e.preventDefault()
+    e.preventDefault();
     this.setState({
       text: e.target.value
     })
-  }
+  };
 
   submitCmt = (e) => {
-    e.preventDefault()
-    const { text } = this.state
-    if (text === ''){
+    e.preventDefault();
+    const {text} = this.state;
+    if (text === '') {
       return false
     }
-    const id = this.props.comments.length
-    const comment = {id, text}
-    store.dispatch({type: 'ADD_COMMENT', comment})
+    const {postId, currentComments} = this.props;
+    const newCommentId = currentComments.length;
+    const comment = {id: newCommentId, text, postId};
+    store.dispatch({type: 'ADD_COMMENT', comment});
     this.setState({
       text: ''
     })
-  }
+  };
 
-  render () {
+  render() {
     const cmtForm = (
       <FormWrap>
-        <Input 
-          value={this.state.text} 
+        <Input
+          value={this.state.text}
           onChange={this.handleChange}
         />
         <Button onClick={this.submitCmt}>提交</Button>
       </FormWrap>
-    )
+    );
 
-    const { comments } = this.props
-    const reversedComments = [...comments].reverse()
+    const reversedComments = [...this.props.currentComments].reverse();
     const cmtList = reversedComments.map(
       t => <div key={t.id}>{t.text}</div>
-    )
+    );
 
     return (
       <Wrap>
@@ -64,11 +64,11 @@ const Wrap = styled.div`
   box-shadow: 0 2px 2px rgba(0, 0, 0, .5);
   height: 300px;
   min-height: 300px;
-`
+`;
 const FormWrap = styled.div`
   display: flex;
   padding: 10px;
-`
+`;
 const Input = styled.input`
   flex-grow: 1;
   height: 30px;
@@ -79,7 +79,7 @@ const Input = styled.input`
     outline: none;
     border-bottom: 1px solid deeppink;
   }
-`
+`;
 const Button = styled.div`
   background-color: deeppink;
   margin-left: 10px;
@@ -93,10 +93,10 @@ const Button = styled.div`
     cursor: pointer;
   }
   color: white;
-`
+`;
 const CmtList = styled.div`
   padding: 10px;
   div {
     line-height: 30px;
   }
-`
+`;

@@ -3,6 +3,7 @@ import PostBody from '../Postbody/PostBody'
 import CommentBox from '../CommentBox/CommentBox'
 import styled from 'styled-components'
 import {connect} from 'react-redux'
+import {addComment} from "../../../actions";
 
 class Post extends Component {
   render() {
@@ -17,7 +18,7 @@ class Post extends Component {
           <PostBody id={postId} posts={posts} currentComments={currentComments}/>
         </Upper>
         <Bottom>
-          <CommentBox postId={postId} currentComments={currentComments}/>
+          <CommentBox postId={postId} currentComments={currentComments} addComment={addComment}/>
         </Bottom>
       </Wrap>
     )
@@ -28,7 +29,7 @@ const mapStateToProps = state => ({
   comments: state.comments,
   posts: state.posts
 });
-export default connect(mapStateToProps)(Post)
+export default connect(mapStateToProps, {addComment})(Post)
 
 const Wrap = styled.div``;
 

@@ -1,10 +1,10 @@
 import React, {Component} from 'react'
-import {connect} from 'react-redux'
 
 class Counter extends Component {
   constructor(props) {
     super(props);
     this.state = {counter: 0};
+    this.handleIncrement = this.handleIncrement.bind(this);
   }
 
   //这里采用了调用setState方法的两种方式，注意差别
@@ -24,7 +24,7 @@ class Counter extends Component {
     return (
       <div>
         <h1>{this.state.counter}</h1>
-        <button onClick={this.handleIncrement.bind(this)}>+</button>
+        <button onClick={this.handleIncrement}>+</button>
         <button onClick={this.handleDecrement}>-
         </button>
       </div>
@@ -32,7 +32,5 @@ class Counter extends Component {
   }
 }
 
-const mapStateToProps = state => ({
-  counter: state.counter
-});
-export default connect(mapStateToProps)(Counter)
+
+export default Counter

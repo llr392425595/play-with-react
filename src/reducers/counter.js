@@ -1,6 +1,6 @@
 const initialState = 0;
 
-const postsReducer = (state = initialState, action) => {
+const counterReducer = (state = initialState, action) => {
   switch (action.type) {
     case 'INCREMENT':
       return state + 1;
@@ -11,4 +11,4 @@ const postsReducer = (state = initialState, action) => {
   }
 };
 
-export default postsReducer
+export default counterReducer

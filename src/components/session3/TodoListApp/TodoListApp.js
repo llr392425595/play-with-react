@@ -1,8 +1,8 @@
 import React, {Component} from 'react'
 import Card from '@material-ui/core/Card';
-import AddItem from "./AddItem/AddItem";
-import ItemList from "./ItemList/ItemList";
-import ItemFilter from "./ItemFilter/ItemFilter";
+import AddItem from "../../../containers/AddItem/AddItem";
+import ItemList from "../ItemList/ItemList";
+import ItemFilter from "../ItemFilter/ItemFilter";
 
 import {withStyles} from '@material-ui/core/styles';
 import WithMui from '../utils/WithMui';
@@ -13,7 +13,7 @@ const styles = {
     paddingTop: 200,
     marginLeft: 'auto',
     marginRight: 'auto',
-    width: 800,
+    width: 500,
   },
   card: {
     paddingTop: 40,

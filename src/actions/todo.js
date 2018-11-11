@@ -1,6 +1,10 @@
+import shortid from 'shortid'
+
 export const addTodo = todo => ({
   type: 'ADD_TODO',
-  todo
+  id: shortid(),
+  title: todo,
+  date: '2018-11-11'
 });
 
 

@@ -14,14 +14,7 @@ const theme = createMuiTheme({
     }
   },
   typography: {
-    useNextVariants: true,
-    subtitle1: {
-      color: '#fff',
-      fontFamily: 'Open Sans',
-      fontSize: '14px',
-      lineHeight: '24px',
-      textDecoration: 'none'
-    }
+    useNextVariants: true
   },
 });
 

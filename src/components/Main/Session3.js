@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import {Route} from 'react-router-dom'
-import TodoList from '../session3/TodoListApp/TodoListApp'
+import TodoList from '../session3/TodoApp/TodoApp'
 
 class Session2 extends Component {
   render() {

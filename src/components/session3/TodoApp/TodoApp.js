@@ -1,11 +1,11 @@
 import React, {Component} from 'react'
 import Card from '@material-ui/core/Card';
-import AddItem from "../../../containers/AddItem/AddItem";
-import ItemList from "../ItemList/ItemList";
+import AddItem from "../../../containers/AddTodo/AddTodo";
 import ItemFilter from "../ItemFilter/ItemFilter";
 
 import {withStyles} from '@material-ui/core/styles';
 import WithMui from '../utils/WithMui';
+import TodoList from "../../../containers/TodoList/TodoList";
 
 const styles = {
   root: {
@@ -23,14 +23,14 @@ const styles = {
   },
 };
 
-class TodoListApp extends Component {
+class TodoApp extends Component {
   render() {
     const {classes} = this.props;
     return (
       <div className={classes.root}>
         <Card className={classes.card}>
           <AddItem/>
-          <ItemList/>
+          <TodoList/>
           <ItemFilter/>
         </Card>
       </div>
@@ -39,4 +39,4 @@ class TodoListApp extends Component {
   }
 }
 
-export default WithMui(withStyles(styles)(TodoListApp))
+export default WithMui(withStyles(styles)(TodoApp))

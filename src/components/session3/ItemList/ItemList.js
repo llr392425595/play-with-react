@@ -16,35 +16,20 @@ const styles = theme => ({
 });
 
 class ItemList extends React.Component {
-  state = {
-    checked: [1],
-  };
 
-  handleToggle = value => () => {
-    const {checked} = this.state;
-    const currentIndex = checked.indexOf(value);
-    const newChecked = [...checked];
-
-    if (currentIndex === -1) {
-      newChecked.push(value);
-    } else {
-      newChecked.splice(currentIndex, 1);
-    }
-
-    this.setState({
-      checked: newChecked,
-    });
+  onTodoClick = (id) => {
+    this.props.toggleTodo(id)
   };
 
   render() {
-    const {classes,todos} = this.props;
+    const {classes, todos} = this.props;
 
     const todoList = todos.map(todo => (
       <ListItem key={todo.id} button>
         <ListItemText primary={todo.title}/>
         <ListItemSecondaryAction>
           <Checkbox
-            onChange={this.handleToggle(todo.completed)}
+            onChange={() => this.onTodoClick(todo.id)}
             checked={todo.completed}
           />
         </ListItemSecondaryAction>

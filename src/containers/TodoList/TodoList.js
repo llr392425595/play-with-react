@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import connect from "react-redux/es/connect/connect";
 import ItemList from "../../components/session3/ItemList/ItemList";
+import {toggleTodo} from "../../actions/todo";
 
 class TodoList extends Component {
 
@@ -15,4 +16,4 @@ const mapStateToProps = state => ({
   todos: state.todos
 });
 
-export default connect(mapStateToProps)(TodoList)
+export default connect(mapStateToProps, {toggleTodo})(TodoList)

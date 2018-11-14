@@ -12,3 +12,8 @@ export const toggleTodo = id => ({
   type: 'TOGGLE_TODO',
   id
 });
+
+
+export const changeFilterMethod = type => ({
+  type: type
+});

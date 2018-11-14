@@ -1,11 +1,11 @@
 import React, {Component} from 'react'
 import Card from '@material-ui/core/Card';
 import AddItem from "../../../containers/AddTodo/AddTodo";
-import ItemFilter from "../ItemFilter/ItemFilter";
 
 import {withStyles} from '@material-ui/core/styles';
 import WithMui from '../utils/WithMui';
 import TodoList from "../../../containers/TodoList/TodoList";
+import TodoFilter from "../../../containers/TodoFilter/TodoFilter";
 
 const styles = {
   root: {
@@ -31,7 +31,7 @@ class TodoApp extends Component {
         <Card className={classes.card}>
           <AddItem/>
           <TodoList/>
-          <ItemFilter/>
+          <TodoFilter/>
         </Card>
       </div>
     )

@@ -13,6 +13,12 @@ const styles = theme => ({
     maxWidth: 360,
     backgroundColor: theme.palette.background.paper,
   },
+  active: {
+
+  },
+  inactive: {
+    backgroundColor: "rgba(0, 0, 0, 0.08)"
+  }
 });
 
 class ItemList extends React.Component {
@@ -22,10 +28,12 @@ class ItemList extends React.Component {
   };
 
   render() {
-    const {classes, todos} = this.props;
+    const {classes, todos, filterMethod} = this.props;
 
-    const todoList = todos.map(todo => (
-      <ListItem key={todo.id} button>
+    const displayTodos = todos.filter(filterMethod);
+
+    const todoList = displayTodos.map(todo => (
+      <ListItem key={todo.id} button className={todo.completed ? classes.inactive : classes.active}>
         <ListItemText primary={todo.title}/>
         <ListItemSecondaryAction>
           <Checkbox

@@ -13,7 +13,8 @@ class TodoList extends Component {
 }
 
 const mapStateToProps = state => ({
-  todos: state.todos
+  todos: state.todos,
+  filterMethod: state.filterMethod
 });
 
 export default connect(mapStateToProps, {toggleTodo})(TodoList)
